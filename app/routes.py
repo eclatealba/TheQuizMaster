@@ -85,3 +85,15 @@ def logout():
     session.pop('user_id', None)
     session.pop('marks', None)
     return redirect(url_for('home'))
+
+# for checking registered users
+@app.route('/users', methods=['GET'])
+def create_user():
+    """Create a user."""
+    ...
+    users = User.query.all()
+    return render_template(
+        'users.html',
+        users=users,
+        title="Show Users"
+    )
